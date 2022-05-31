@@ -20,7 +20,8 @@ x create Treespace Profile
 
 contract TreespaceProfile {
 
-    event createdTreespaceProfile(uint, string, address);
+    event createdTreespaceProfile(uint userID, string name, address creator);
+    event addedSocialsToProfile(uint userID, string[] usernames, string[] platforms);
 
     // the user ID that corrosponds with the information
     uint _userID = 0;
@@ -69,19 +70,40 @@ contract TreespaceProfile {
 
         });
         
+        _userID++;
+
         emit createdTreespaceProfile(_userID, _name, msg.sender);
     }
 
 
     /* 
         @dev add socials to a treespace Profile
+        @param _userID to get the corrosponding profile
+        @param platforms[] array with the platforms 
+        @param usernames[] array with the usernames
         
     */ 
+    function addSocialsToProfile(
+        uint _userId,
+        string[] memory platforms,
+        string[] memory usernames
+    ) public {
+
+        require(addressToUserID[msg.sender] == _userId, "TREESPACEPROFILE::addSocialsToProfile:UserID does not match msg.sender.");
+        require(platforms.length == usernames.length, "TREESPACEPROFILE::addSocialsToProfile:Lenght does not match.");
+
+        for(uint i; i < usernames.length; i++) {
+            userIdToSocials[_userId][platforms[i]] = usernames[i];
+        }
+
+        
+        emit addedSocialsToProfile(_userId, usernames, platforms); 
+    }
 
 }
 
 interface ITreespaceProfile {
     function createTreespaceProfile(string memory _name, string memory _profilePictureLink, string memory _describtion) external;
-
+    function addSocialsToProfile(uint _userId, string[] memory platforms, string[] memory usernames) external; 
 
 }
