@@ -12,13 +12,13 @@ contract Test_CreatingProfiles {
         string describtion;         
     }
 
-    function testCreation() public {
-        
-        TreespaceProfile treespaceprofile = TreespaceProfile(DeployedAddresses.TreespaceProfile());
+    TreespaceProfile treespaceprofile = TreespaceProfile(DeployedAddresses.TreespaceProfile());
 
-        string memory name;
-        string memory profilePicture;
-        string memory describtion;
+    function testCreation() public {
+
+        string memory name = "Nroo";
+        string memory profilePicture = "https://super.com";
+        string memory describtion = "One good artist.";
 
         treespaceprofile.createTreespaceProfile(
             name, profilePicture, describtion
@@ -26,12 +26,36 @@ contract Test_CreatingProfiles {
         
         uint userID = treespaceprofile.addressToUserID(address(this));
 
-        // check if the name given matches the name in the profile
-        _userProfile memory localProfile = treespaceprofile.userIdToProfile(userID);
+        Assert.equal(userID, 0, "Name does not equal.");
+    }
 
-        Assert.equal(localProfile["name"], name, "Name does not equal.");
+    function testCounter() public {
+        
+        // create mutliple profiles and test the counter 
+        string memory name = "Nroo broooooo";
+        string memory profilePicture = "https://super.com";
+        string memory describtion = "One good artist.";
+
+        uint amountOfProfiles = 10; 
+        for(uint i; i <= amountOfProfiles; i++) {
+            // create profile 
+            treespaceprofile.createTreespaceProfile(
+                name, profilePicture, describtion
+            );  
+        } // we create 10 profiles - should fail since the name is the same
 
     }
 
+    function testIsNameTaken() public {
+        string memory name = "bro";
+        string memory profilePicture = "https://super.com";
+        string memory describtion = "One good artist.";
+
+        treespaceprofile.createTreespaceProfile(
+            name, profilePicture, describtion
+        );  
+
+        Assert.equal(treespaceprofile.isNameTaken(name), bool(true), "Check does no assign.");
+    }
 
 }

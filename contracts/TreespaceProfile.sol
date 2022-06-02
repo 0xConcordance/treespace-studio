@@ -61,6 +61,8 @@ contract TreespaceProfile {
         require(isNameTaken[_name] != true, 
         "TREESPACEPROFILE::createTreespaceProfile:Username already taken.");
         
+        isNameTaken[_name] == true;
+
         addressToUserID[msg.sender] = _userID;
 
         userIdToProfile[_userID] = _userProfile({
