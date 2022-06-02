@@ -14,4 +14,16 @@ body {
     padding-left: 3.2%;
   }
   
-  
+  .wallet-frame {
+    border: solid;
+    padding: 15px;
+    border-radius: 5px;
+    border-color: #a8a8a8;
+  }
+
+  .small-box-frame {
+    padding: 10px;
+    border: solid;
+    border-radius: 5px;
+    border-color: #a8a8a8;
+  }
