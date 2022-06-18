@@ -8,8 +8,8 @@ body {
   }
   
 .frame {
-    padding-top: 12rem;
-    height: 50%;
+    padding-top: 2rem;
+    height: 30%;
     align-items: center;
     padding-left: 3.2%;
   }
@@ -18,12 +18,31 @@ body {
     border: solid;
     padding: 15px;
     border-radius: 5px;
-    border-color: #a8a8a8;
+    border-color: #000000;
   }
 
   .small-box-frame {
-    padding: 10px;
     border: solid;
     border-radius: 5px;
-    border-color: #a8a8a8;
+    border-color: #3c3c3c;
+    margin: 7px;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .individualNFT {
+    width: 100%;
+    border-radius: 5px;
+
+  }
+
+  .individualwalletname {
+    margin-top: 15px;
+    font-size: 1.3rem;
+  }
+
+  .individualNFT-2 {
+    width: 100%;
+    border-radius: 5px;
   }

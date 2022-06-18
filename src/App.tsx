@@ -13,6 +13,7 @@ import {Gallery} from './Pages/Gallery'
 // USEDAPP
 import { getDefaultProvider, utils } from 'ethers'
 import { ChainId, DAppProvider, OptimismKovan, Rinkeby, useEthers } from '@usedapp/core';
+import { NftSite } from './Pages/nftSite';
 
 function App() {
   
@@ -33,7 +34,7 @@ function App() {
                     <Route path='/' element={ <Dashboard /> }/>
                     <Route path='/mint' element={ <Mint /> }/>
                     <Route path='/gallery' element={ <Gallery /> }/>
-                    
+                    <Route path='/nft/:id' element={ <NftSite />} />
                   </Routes>
               </div>
 

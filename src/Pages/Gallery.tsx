@@ -11,7 +11,7 @@ import { erc721Interface } from '../contract-data/ABI';
 import { ERC721address } from '../contract-data/ContractAddress';
 
 // COMPONENTS
-import {MintedNFTs} from '../Components/MintedNFTs'
+import {MintedNFTs} from '../Components/UserWallet'
 
 function useTokenBalance(
     address: string | Falsy
