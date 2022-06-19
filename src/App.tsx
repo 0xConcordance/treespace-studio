@@ -19,29 +19,28 @@ function App() {
   
   return (
 
-    <DAppProvider config={{
-      supportedChains: [ChainId.Rinkeby],
-      readOnlyChainId: ChainId.Rinkeby,
-      readOnlyUrls: {
-        [Rinkeby.chainId]: getDefaultProvider('rinkeby'),
-      },
-    }}>
+      <DAppProvider config={{
+        supportedChains: [ChainId.Rinkeby],
+        readOnlyChainId: ChainId.Rinkeby,
+        readOnlyUrls: {
+          [Rinkeby.chainId]: getDefaultProvider('rinkeby'),
+        },
+      }}>
 
-            <div>
-              <Navbar />
-              <div className='container'>
-                  <Routes>
-                    <Route path='/' element={ <Dashboard /> }/>
-                    <Route path='/mint' element={ <Mint /> }/>
-                    <Route path='/gallery' element={ <Gallery /> }/>
-                    <Route path='/nft/:id' element={ <NftSite />} />
-                  </Routes>
+              <div>
+                <Navbar />
+                <div className='container'>
+                    <Routes>
+                      <Route path='/' element={ <Dashboard /> }/>
+                      <Route path='/mint' element={ <Mint /> }/>
+                      <Route path='/gallery' element={ <Gallery /> }/>
+                      <Route path='/nft/:id' element={ <NftSite />} />
+                    </Routes>
+                </div>
+
               </div>
 
-            </div>
-
-    </DAppProvider>
-
+      </DAppProvider>
   );
 }
 

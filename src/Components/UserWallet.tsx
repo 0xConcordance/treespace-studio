@@ -14,7 +14,7 @@ export const MintedNFTs = () => {
       useEffect(() => {
         fetch("/getOwnedNFTsByAddress/" + account ).then((res) =>
             res.json().then((data) => {
-                setAllNFTs(data);
+                setAllNFTs(data)
                 setLoading("finished")
             })
         );

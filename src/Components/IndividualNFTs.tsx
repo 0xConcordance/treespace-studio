@@ -13,12 +13,21 @@ export const IndividualNfts = (props) => {
         }, []); 
 
     console.log(uriData["image"])
+    
+    if(uriData["image"] == undefined) {
+        return(
+            <div className="col-sm-3 small-box-frame">
+                <p>No data found...</p>
+            </div>
+        ) 
+    } else {
 
-    return(
-        <Link to={"/nft/" + props.data} className="col-sm-3 small-box-frame">
-            <img className="individualNFT" src={uriData["image"]}/>
-            <h4 className="individualwalletname">{uriData["name"]}</h4>
-        </Link>
-    )
+        return(
+            <Link to={"/nft/" + props.data} className="col-sm-3 small-box-frame">
+                <img className="individualNFT" src={uriData["image"]}/>
+                <h4 className="individualwalletname">{uriData["name"]}</h4>
+            </Link>
+        )
+    }
 
 }

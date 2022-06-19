@@ -17,6 +17,8 @@ import { Buffer } from "buffer";
 import { isPostfixUnaryExpression } from "typescript";
 import { setMaxListeners } from "process";
 
+
+
 export const Mint = () => {
 
     const [uri, setUri] = useState("");
@@ -28,46 +30,55 @@ export const Mint = () => {
     const [name, setName] = useState("")
     // describtion
     const [describtion, setDescribtion] = useState("")
-    // image
-    const [image, setImage] = useState();
     // royalties
     const [royalties, setRoyalties] = useState("");
     // royaltieReciever
     const [royaltieReciever, setRoyaltieReceiver] = useState("");
+    // metadata hash
+    const [metadata, setMetadata] = useState("");
     
     const contract = new Contract(ERC721address, erc721Interface)
     const { state, send } = useContractFunction(contract, 'mint', {transactionName: 'mint'})
     const { status } = state
 
-    useEffect(() => {
-        if (image == undefined) return;
-        const newImageHash = URL.createObjectURL(image)
-        console.log("BROOO Smt")
-        setImageHash(newImageHash)
-        console.log(newImageHash)
-    }, [image])
-
     const sendTransaction = (uri) => {
-        send(uri)
+        // _Uri - metadata
+        // _royaltiesBasisPoints - royalties
+        // _royaltieReceiver - royaltieReciever
+        console.log("Metdata: " + uri)
+
+        send(uri, royalties, royaltieReciever)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         // we need to upload all the data to ipfs
+        const post_data = {
+            "name": name,
+            "describtion": describtion,
+            "image_hash": imageHash
+        }   
 
-        sendTransaction(uri)
+
+        console.log("THIS THE POST DATA: " + post_data["image_hash"])
+
+        fetch("/uploadJSON", {
+            method: "POST",
+            headers : {
+                'Content-Type':'application/json',
+                'Accept': 'application/json'
+          },    
+            body: JSON.stringify(post_data)
+        }).then((res) => {
+            res.json().then((data) => {
+                console.log(data)
+                setMetadata(data["IpfsHash"])
+                sendTransaction(data["IpfsHash"])
+            })
+        })
+
       }
-
-    const onImageChange = (event) => {
-        event.preventDefault();
-        const file = event.target.files[0]
-        const reader = new window.FileReader()
-        reader.readAsArrayBuffer(file)
-        reader.onloadend = () => {
-            console.log(reader.result)
-        }
-    }   
 
     return(
         <div className="frame container">
@@ -76,6 +87,9 @@ export const Mint = () => {
 
             <label>Image:</label>
             <ImageUpload setUrl={setImageHash} />
+            {imageHash && 
+                <p>{imageHash}</p>
+            }
 
             <form onSubmit={handleSubmit} >
 
@@ -91,8 +105,8 @@ export const Mint = () => {
                 
                 <div className="form-group lastFormGroup">
                     <label>*Royalties:</label>
-                    <input type="number" required className="form-control" max={100} placeholder="5" value={royalties} onChange={(e) => setRoyalties(e.target.value)}/>
-                    <small className="form-text text-muted" >Whenever someone sells your NFT you get this share.</small>
+                    <input type="number" required className="form-control" max={30} placeholder="5" value={royalties} onChange={(e) => setRoyalties(e.target.value)}/>
+                    <small className="form-text text-muted" >Whenever someone sells your NFT you get this share. Max 30%.</small>
                 </div>
 
                 <div className="form-group lastFormGroup">
@@ -106,7 +120,7 @@ export const Mint = () => {
             </form>
 
             <p>Status: {status}</p>
-
+            <p>{metadata}</p>
         </div>
     )
 }

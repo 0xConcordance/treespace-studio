@@ -8,8 +8,6 @@ export const Dashboard = () => {
             <h1>Treespace Studio</h1>
             <p>Manage your NFTs across the Treespace Ecosystem.</p>
             
-            <img src="../../treespace3.png" className="home-image"></img>
-
         </div>
     );
 }
