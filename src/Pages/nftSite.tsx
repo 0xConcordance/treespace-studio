@@ -41,7 +41,7 @@ export const NftSite = () => {
                         <h1>{uriData["name"]}</h1>
                         <p>{uriData["describtion"]}</p>
                         <hr></hr>
-                        <a>Owned by {account}</a>
+                        <p>Owned by <a href={'https://optimistic.etherscan.io/address/' + account} target="_blank">{account}</a></p>
 
                         <h3 className='nft-headline'>Details </h3>
                         <hr></hr>

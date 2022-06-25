@@ -5,8 +5,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom"
 // PAGES
 import {Dashboard} from './Pages/Dashboard'
 import {Navbar} from './Components/Navbar'
-import { NotConnected } from './Pages/NotConnected'
-import {Connect} from './Components/Connect'
 import {Mint} from './Pages/Mint'
 import {Gallery} from './Pages/Gallery'
 
