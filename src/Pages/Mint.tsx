@@ -1,29 +1,20 @@
 // REACT 
-import { useState, useCallback, useEffect } from "react";
-import {useDropzone} from 'react-dropzone';
+import { useState } from "react";
 import { ImageUpload  } from 'react-ipfs-uploader'
-import ipfs from "ipfs"
 
 // USEDAPP
-import {useEthers, useContractFunction} from '@usedapp/core'
-import { utils } from 'ethers'
+import {useContractFunction} from '@usedapp/core'
 import { Contract } from '@ethersproject/contracts'
 
 // ABI & TOKEN ADDRESS
 import { erc721Interface } from '../contract-data/ABI';
 import { ERC721address } from '../contract-data/ContractAddress';
 
-import { Buffer } from "buffer";
-import { isPostfixUnaryExpression } from "typescript";
-import { setMaxListeners } from "process";
-
 
 
 export const Mint = () => {
 
-    const [uri, setUri] = useState("");
     const [imageHash, setImageHash] = useState("");
-    const [bufferVal, setBuffer] = useState()
 
     // name
     const [name, setName] = useState("")

@@ -1,5 +1,5 @@
 import {Connect} from './Connect'
-import {BrowserRouter, Route, Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 // STYLES
 import '../styles/Navbar.css'

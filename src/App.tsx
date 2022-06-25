@@ -1,6 +1,5 @@
 // UTILS
-import React from 'react';
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import {Route, Routes} from "react-router-dom"
 
 // PAGES
 import {Dashboard} from './Pages/Dashboard'
@@ -9,7 +8,7 @@ import {Mint} from './Pages/Mint'
 import {Gallery} from './Pages/Gallery'
 
 // USEDAPP
-import { getDefaultProvider, utils } from 'ethers'
+import { getDefaultProvider } from 'ethers'
 import { ChainId, DAppProvider, OptimismKovan, Rinkeby, useEthers } from '@usedapp/core';
 import { NftSite } from './Pages/nftSite';
 

@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
-
 // USEDAPP
 import {useEthers, useContractFunction, useCall, ERC20Interface} from '@usedapp/core'
-import { utils } from 'ethers'
 import { Contract } from '@ethersproject/contracts'
 import { Falsy } from "@usedapp/core/dist/esm/src/model/types";
 

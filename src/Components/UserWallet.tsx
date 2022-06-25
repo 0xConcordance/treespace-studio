@@ -1,7 +1,5 @@
-import {getAllData} from "../Services/WalletService"
 import { useEffect, useState } from "react";
 import {IndividualNfts} from "./IndividualNFTs"
-import { propTypes } from "react-bootstrap/esm/Image";
 import {useEthers} from '@usedapp/core'
 
 export const MintedNFTs = () => {
@@ -20,20 +18,6 @@ export const MintedNFTs = () => {
         );
         }, []); 
 
-    /* 
-    for(let i = 0; i < 3; i++) {
-        console.log(i)
-        getAllData(allNFTs[i]).then(r => {
-            setURIs(r)
-        })    
-    }
-
-    Call the API to get all token IDs
-    use those token Ids to display the URI data 
-    in a small card which is, it's own component.
-
-    */
-    
     const compArr = []
 
     Object.keys(allNFTs).map((keys) => {

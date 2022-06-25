@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useEthers } from '@usedapp/core';
 
@@ -37,11 +37,13 @@ export const NftSite = () => {
                     <div className='col-sm-6'>
                         <img className='individualNFT-2 shadow' src={uriData["image"]} />
                     </div>
-                    <div className='col-sm-6'>
+                    <div className='col-sm-1'></div>
+                    <div className='col-sm-5'>
                         <h1>{uriData["name"]}</h1>
                         <p>{uriData["describtion"]}</p>
                         <hr></hr>
                         <p>Owned by <a href={'https://optimistic.etherscan.io/address/' + account} target="_blank">{account}</a></p>
+                        <p>Created by <a href={'https://optimistic.etherscan.io/address/' + account} target="_blank">{account}</a></p>
 
                         <h3 className='nft-headline'>Details </h3>
                         <hr></hr>
