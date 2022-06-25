@@ -29,11 +29,12 @@ ul {
   }
 
   .btn {
-      background-color: #04AA6D;
+      background-color: rgb(58, 196, 116);;
   }
   
 .green {
-    background-color: #04AA6D;
+    background-color: rgb(58, 196, 116);;
     font-family: 'DM Sans', sans-serif;
+    color: white;
 
 }

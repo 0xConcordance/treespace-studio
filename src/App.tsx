@@ -16,7 +16,7 @@ import { ChainId, DAppProvider, OptimismKovan, Rinkeby, useEthers } from '@useda
 import { NftSite } from './Pages/nftSite';
 
 function App() {
-  
+
   return (
 
       <DAppProvider config={{
@@ -29,6 +29,7 @@ function App() {
 
               <div>
                 <Navbar />
+
                 <div className='container'>
                     <Routes>
                       <Route path='/' element={ <Dashboard /> }/>
@@ -37,8 +38,7 @@ function App() {
                       <Route path='/nft/:id' element={ <NftSite />} />
                     </Routes>
                 </div>
-
-              </div>
+              </div>  
 
       </DAppProvider>
   );

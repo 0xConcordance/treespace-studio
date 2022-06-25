@@ -22,7 +22,6 @@ import { setMaxListeners } from "process";
 export const Mint = () => {
 
     const [uri, setUri] = useState("");
-    const {account} = useEthers();
     const [imageHash, setImageHash] = useState("");
     const [bufferVal, setBuffer] = useState()
 

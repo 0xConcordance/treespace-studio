@@ -40,6 +40,14 @@ export const Gallery = () => {
     // get the number of tokens a user has
     const tokenBalance = useTokenBalance(account)
 
+    if (account === undefined) {
+        return (
+            <div>
+                <h1>Please connect to your wallet</h1>
+            </div>
+        )
+    } else {
+
     return(
         <div className="container frame">
             <h1>Your Treespace NFTs</h1>
@@ -47,4 +55,4 @@ export const Gallery = () => {
             <MintedNFTs />
         </div>
     );
-}
+    }}
