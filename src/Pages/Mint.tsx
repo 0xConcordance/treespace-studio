@@ -80,7 +80,23 @@ export const Mint = () => {
 
       }
 
-    return(
+      if (status == "Mining") {
+        return(
+            <div>
+                <video autoPlay loop width={50} height={50}>    
+                    <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
+                </video>                
+                <p>Mining</p>
+            </div>
+        )
+      } else if (status == "Success") {
+        return(
+            <div>
+                <h1>NFT Created.</h1>
+            </div>
+        )
+      } else {
+        return(
         <div className="frame container">
             <h1>Mint an NFT</h1>
             <p>Mint a new NFT using the treespace ERC721 contract.</p>
@@ -122,5 +138,5 @@ export const Mint = () => {
             <p>Status: {status}</p>
             <p>{metadata}</p>
         </div>
-    )
+    )} 
 }

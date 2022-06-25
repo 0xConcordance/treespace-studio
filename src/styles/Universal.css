@@ -15,7 +15,6 @@ body {
   }
   
   .wallet-frame {
-    border: solid;
     padding: 15px;
     border-radius: 5px;
     border-color: #000000;
@@ -24,19 +23,48 @@ body {
   .small-box-frame {
     border: solid;
     border-radius: 5px;
-    border-color: #3c3c3c;
+    border-color: #7e7e7e55;
     margin: 7px;
-    padding: 15px;
+    padding: 10px;
     text-decoration: none;
     color: black;
     transition: 0.2s;
+    box-shadow: 2px 2px 7px #52525209;
+    overflow: hidden;
+
+    height: 19rem;
+
+
+  }
+
+  .small-box-frame img {
+    height: 14.3rem;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  .small-box-frame p {
+    padding-top: 3px;
+    color: rgb(58, 196, 116);
+    margin: 0;
+
+  }
+
+  .small-box-frame .wallet-loading-screen {
+    align-items: center;
+    justify-content: center;  
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40%;
+    width: 40%;
   }
 
   .small-box-frame:hover {
-    margin: 5px;
-    background-color: rgb(79, 255, 132);
     transition: 0.2s;
-    color: rgb(29, 102, 60)
+    color: rgb(58, 196, 116);
+    border-color: rgb(58, 196, 116);
+
   }
 
   .individualNFT {
@@ -46,12 +74,10 @@ body {
     overflow: hidden;
     position: relative;
     display: flex;
-    
-
+  
   }
 
   .individualwalletname {
-    margin-top: 15px;
     font-size: 1.3rem;
   }
 

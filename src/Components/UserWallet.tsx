@@ -45,12 +45,19 @@ export const MintedNFTs = () => {
             <h3>Your Wallet:</h3>
 
             {loading == "loading" &&
-                <p>Searching the Forrest...</p>
+                <div>
+                    <video autoPlay loop width={50} height={50}>    
+                        <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
+                    </video>                
+                </div>
             }
 
             <div className="row">
                 {compArr}
             </div>
+
+
+
             
         </div>
     )
