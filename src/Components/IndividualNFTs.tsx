@@ -5,7 +5,7 @@ export const IndividualNfts = (props) => {
     const [uriData, setURIData] = useState({});
 
       useEffect (() => {
-        fetch("/tokenFormatter/" + props.data).then((res) =>
+        fetch("/tokenFormatter/" + props.data, {mode:"cors"}).then((res) =>
             res.json().then((data) => {
                 setURIData(data);
             })

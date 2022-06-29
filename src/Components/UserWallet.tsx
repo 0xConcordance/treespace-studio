@@ -10,7 +10,7 @@ export const MintedNFTs = () => {
     const [ loading, setLoading ] = useState("loading");
 
       useEffect(() => {
-        fetch("/getOwnedNFTsByAddress/" + account ).then((res) =>
+        fetch("/getOwnedNFTsByAddress/" + account, {mode:"cors"} ).then((res) =>
             res.json().then((data) => {
                 setAllNFTs(data)
                 setLoading("finished")

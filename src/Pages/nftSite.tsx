@@ -12,7 +12,7 @@ export const NftSite = () => {
     const [loading, setLoading] = useState(true);
 
       useEffect (() => {
-        fetch("/tokenFormatter/" + id).then((res) =>
+        fetch("/tokenFormatter/" + id, {mode:"cors"}).then((res) =>
             res.json().then((data) => {
                 setURIData(data);
                 setLoading(false);

@@ -59,7 +59,8 @@ export const Mint = () => {
                 'Content-Type':'application/json',
                 'Accept': 'application/json'
           },    
-            body: JSON.stringify(post_data)
+            body: JSON.stringify(post_data),
+            mode: "cors"
         }).then((res) => {
             res.json().then((data) => {
                 console.log(data)
