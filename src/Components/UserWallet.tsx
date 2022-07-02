@@ -19,6 +19,8 @@ export const MintedNFTs = () => {
             setAllNFTs(res.data)
             setLoading("finished")
             console.log(res.data)
+        }).catch(error => {
+            console.log(error.response)
         })
 
         /* 

@@ -20,6 +20,8 @@ export const NftSite = () => {
         }).then((res) => {
             setURIData(res.data);
             setLoading(false);
+        }).catch(error => {
+            console.log(error.response)
         })
 
         /* 

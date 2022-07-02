@@ -12,6 +12,8 @@ export const IndividualNfts = (props) => {
             url: "/tokenFormatter/" + props.data
         }).then((res) => {
             setURIData(res.data);
+        }).catch(error => {
+            console.log(error.response)
         })
 
         /*
