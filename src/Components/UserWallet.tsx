@@ -28,6 +28,11 @@ export const MintedNFTs = () => {
                 setLoading("finished")
             })
         );
+
+                            <video autoPlay loop width={50} height={50}>    
+                        <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
+                    </video>                
+
             */ 
         }, []); 
 
@@ -43,9 +48,7 @@ export const MintedNFTs = () => {
 
             {loading == "loading" &&
                 <div>
-                    <video autoPlay loop width={50} height={50}>    
-                        <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
-                    </video>                
+                    <p>Loading</p>
                 </div>
             }
 

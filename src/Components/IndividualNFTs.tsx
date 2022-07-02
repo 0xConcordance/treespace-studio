@@ -20,15 +20,18 @@ export const IndividualNfts = (props) => {
                 setURIData(data);
             })
         );
+
+                        <video autoPlay loop width={50} height={50} className="wallet-loading-screen">    
+                        <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
+                </video>                
+
             */ 
         }, []); 
     
     if(uriData["image"] == undefined) {
         return(
             <div className="col-sm-3 small-box-frame">
-                <video autoPlay loop width={50} height={50} className="wallet-loading-screen">    
-                        <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
-                </video>                
+                <p>Loading</p>
             </div>
         ) 
     } else {

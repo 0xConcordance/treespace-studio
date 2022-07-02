@@ -29,6 +29,10 @@ export const NftSite = () => {
                 setLoading(false);
             })
         );
+                            <video autoPlay loop width={50} height={50}>    
+                        <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
+                    </video>                
+
             */
 
 
@@ -37,10 +41,7 @@ export const NftSite = () => {
         if(loading) {
             return (
                 <div className="container">
-                    <video autoPlay loop width={50} height={50}>    
-                        <source src="/animations/full-logo-animation.mp4" type="video/mp4"/>
-                    </video>                
-
+                    <p>Loading</p>
                 </div>
             )
         } else {
