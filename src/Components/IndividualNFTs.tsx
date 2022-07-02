@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
+import axios from "axios";
 
 export const IndividualNfts = (props) => {
     const [uriData, setURIData] = useState({});
 
       useEffect (() => {
+
+        axios({
+            method: "GET",
+            url: "/tokenFormatter/" + props.data
+        }).then((res) => {
+            setURIData(res.data);
+        })
+
+        /*
         fetch("/tokenFormatter/" + props.data, {mode:"cors"}).then((res) =>
             res.json().then((data) => {
                 setURIData(data);
             })
         );
+            */ 
         }, []); 
     
     if(uriData["image"] == undefined) {

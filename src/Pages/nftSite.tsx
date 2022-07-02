@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useEthers } from '@usedapp/core';
+import axios from "axios";
 
 export const NftSite = () => {
 
@@ -12,12 +13,25 @@ export const NftSite = () => {
     const [loading, setLoading] = useState(true);
 
       useEffect (() => {
+
+        axios({
+            method: "GET",
+            url: "/tokenFormatter/" + id
+        }).then((res) => {
+            setURIData(res.data);
+            setLoading(false);
+        })
+
+        /* 
         fetch("/tokenFormatter/" + id, {mode:"cors"}).then((res) =>
             res.json().then((data) => {
                 setURIData(data);
                 setLoading(false);
             })
         );
+            */
+
+
         }, []); 
 
         if(loading) {

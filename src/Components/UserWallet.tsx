@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {IndividualNfts} from "./IndividualNFTs"
 import {useEthers} from '@usedapp/core'
+import axios from "axios";
 
 export const MintedNFTs = () => {
     const {account} = useEthers();
@@ -10,12 +11,24 @@ export const MintedNFTs = () => {
     const [ loading, setLoading ] = useState("loading");
 
       useEffect(() => {
+
+        axios({
+            method: "GET",
+            url: "/getOwnedNFTsByAddress/" + account
+        }).then((res) => {
+            setAllNFTs(res.data)
+            setLoading("finished")
+            console.log(res.data)
+        })
+
+        /* 
         fetch("/getOwnedNFTsByAddress/" + account, {mode:"cors"} ).then((res) =>
             res.json().then((data) => {
                 setAllNFTs(data)
                 setLoading("finished")
             })
         );
+            */ 
         }, []); 
 
     const compArr = []
